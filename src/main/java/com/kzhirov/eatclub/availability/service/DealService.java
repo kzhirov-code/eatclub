@@ -57,7 +57,13 @@ public class DealService {
         return result;
     }
 
-    private boolean isTimeInRange(LocalTime time, LocalTime start, LocalTime end)  {
-        return (time.isAfter(start) || time.equals(start) ) && time.isBefore(end);
+    boolean isTimeInRange(LocalTime time, LocalTime start, LocalTime end)  {
+        // imaging restaurant opens at 9pm and closes at 2am
+        if (start.isAfter(end)) {
+            return !time.isBefore(start) || time.isBefore(end);
+        }
+        else {
+            return !time.isBefore(start) && time.isBefore(end);
+        }
     }
 }
