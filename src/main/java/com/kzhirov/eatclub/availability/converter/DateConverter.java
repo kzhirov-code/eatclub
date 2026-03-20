@@ -17,4 +17,11 @@ public class DateConverter {
         }
         return LocalTime.parse(timeOfDay.toUpperCase(), FORMATTER);
     }
+
+    public String convertFromLocalTime(LocalTime time) {
+        if (time == null) {
+            throw new IllegalArgumentException("Time cannot be null");
+        }
+        return time.format(FORMATTER).toLowerCase();
+    }
 }

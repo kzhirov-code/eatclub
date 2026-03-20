@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kzhirov.eatclub.availability.converter.DateConverter;
 import com.kzhirov.eatclub.availability.model.api.ActiveDealsResponse;
+import com.kzhirov.eatclub.availability.model.api.PeakHoursResponse;
 import com.kzhirov.eatclub.availability.service.DealService;
 
 @RestController
@@ -30,5 +31,11 @@ public class DealController {
         LocalTime time = dateConverter.convert(timeOfDay);
         return dealService.getActiveDeals(time);
     }
+
+    @RequestMapping("/peak-hours")
+    public PeakHoursResponse getPeakHours() {
+        return dealService.getPeakHours();
+    }
+
     
 }
