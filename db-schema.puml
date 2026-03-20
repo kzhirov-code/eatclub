@@ -1,0 +1,51 @@
+@startuml
+
+entity Restaurant {
+  +restaurant_id : guid <<PK>>
+  name : varchar
+  imageLink : varchar
+  open : time
+  close : time
+}
+
+entity Address {
+  +address_id : guid <<PK>>
+  restaurant_id : guid <<FK>>
+  address1 : varchar
+  address2 : varchar
+  suburb : varchar
+  state : varchar
+  postcode : varchar
+}
+
+entity Cuisine {
+    +cuisine_id : guid <<PK>>
+    title : varchar
+}
+
+entity RestaurantCuisine {
+    restaurant_id : guid <<FK>>
+    cuisine_id : guid <<FK>>
+}
+
+entity Deal {
+    +deal_id : guid <<PK>> 
+    discount : integer
+}
+
+entity RestaurantDeal {
+    restaurant_id : guid <<FK>>
+    deal_id : guid <<FK>> 
+    dineIn : boolean
+    lightning: boolean
+    start: time
+    end: time
+    qtyLeft: integer
+}
+
+Restaurant ||--|| Address
+Cuisine ||--o{ RestaurantCuisine
+RestaurantCuisine }o-||Restaurant
+Deal ||--o{ RestaurantDeal
+Restaurant ||-o{ RestaurantDeal
+@enduml
