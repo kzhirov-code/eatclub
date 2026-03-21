@@ -14,6 +14,7 @@ import com.kzhirov.eatclub.availability.converter.DealConverter;
 import com.kzhirov.eatclub.availability.ds.RestaurantsFileBaseDS;
 import com.kzhirov.eatclub.availability.model.api.ActiveDealsResponse;
 import com.kzhirov.eatclub.availability.model.api.DealApiModel;
+import com.kzhirov.eatclub.availability.model.api.PeakHoursResponse;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -68,5 +69,22 @@ public class DealServiceTest {
                 "D80263E8-0000-2C70-FF6B-D854ADB8DB00");
         Set<String> result = response.deals().stream().map(DealApiModel::dealObjectId).collect(Collectors.toSet());
         assertEquals(result, activeDeals);
+    }
+
+    @Test
+    void testPeakHours() {
+        PeakHoursResponse peakHoursResponse = dealService.getPeakHours();
+        assertEquals("5:00pm", peakHoursResponse.peakTimeStart());
+        assertEquals("9:00pm", peakHoursResponse.peakTimeEnd());
+    }
+
+    @Test
+    void testPeakHours_midnight() {
+        DealService service = new DealService(new RestaurantsFileBaseDS(new ObjectMapper(), "testData.json"), new DateConverter(), new DealConverter());
+        PeakHoursResponse result = service.getPeakHours();
+        // any of the intervals 9pm-12am or 12am-1am 
+        assertTrue(result.peakTimeStart().equals("9:00pm") || result.peakTimeStart().equals("12:00am"));
+        assertTrue(result.peakTimeEnd().equals("1:00am") || result.peakTimeEnd().equals("12:00am"));
+
     }
 }
