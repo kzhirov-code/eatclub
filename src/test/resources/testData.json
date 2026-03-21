@@ -1,0 +1,70 @@
+{
+  "restaurants": [
+    {
+      "objectId": "DEA567C5-F64C-3C03-FF00-E3B24909BE00",
+      "name": "Masala Kitchen",
+      "address1": "55 Walsh Street",
+      "suburb": "Lower East",
+      "cuisines": [
+        "Indian",
+        "Brazilian",
+        "Breakfast"
+      ],
+      "imageLink": "https://dinnerdeal.backendless.com/api/e14e5098-2393-6d4a-ff80-f5564e042100/v1/files/restaurant_images/DEA567C5-F64C-3C03-FF00-E3B24909BE00_image_0_1520389372647.jpg",
+      "open": "9:00pm",
+      "close": "2:00am",
+      "deals": [
+        {
+          "objectId": "DEA567C5-0000-3C03-FF00-E3B24909BE00",
+          "discount": "50",
+          "dineIn": "false",
+          "lightning": "true",
+          "qtyLeft": "5"
+        },
+        {
+          "objectId": "DEA567C5-1111-3C03-FF00-E3B24909BE00",
+          "discount": "40",
+          "dineIn": "true",
+          "lightning": "false",
+          "qtyLeft": "4"
+        }
+      ]
+    },
+    {
+      "objectId": "D80263E8-FD89-2C70-FF6B-D854ADB8DB00",
+      "name": "ABC Chicken",
+      "address1": "361 Queen Street",
+      "suburb": "Melbourne",
+      "cuisines": [
+        "Asian",
+        "Contemporary",
+        "Fried Chicken",
+        "Korean",
+        "Salads",
+        "Ribs",
+        "Seafood",
+        "Soup",
+        "Vegetarian"
+      ],
+      "imageLink": "https://demo.eccdn.com.au/images/D80263E8-FD89-2C70-FF6B-D854ADB8DB00/eatclub_1634706351211.jpg",
+      "open": "12:00pm",
+      "close": "1:00am",
+      "deals": [
+        {
+          "objectId": "D80263E8-0000-2C70-FF6B-D854ADB8DB00",
+          "discount": "30",
+          "dineIn": "false",
+          "lightning": "false",
+          "qtyLeft": "1"
+        },
+        {
+          "objectId": "D80263E8-1111-2C70-FF6B-D854ADB8DB00",
+          "discount": "20",
+          "dineIn": "true",
+          "lightning": "false",
+          "qtyLeft": "4"
+        }
+      ]
+    }
+  ]
+}
